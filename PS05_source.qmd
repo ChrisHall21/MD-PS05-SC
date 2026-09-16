@@ -89,7 +89,7 @@ Create a visual model of these data (a graph) that will allow you to conduct an 
 :::
 
 ::: {.callout-important icon="false" collapse="false" title="Problem 2 Answers"}
--   Delete this and put your text answer here.
+-   Yes I expected that people with **low trump support** would commit more **hate crimes**.
 :::
 
 ::: {.callout-note icon="false" title="Problem 3"}
@@ -99,7 +99,9 @@ Create a model that examines the relationship between hate crime rates and the l
 ::: {.callout-important icon="false" collapse="false" title="Problem 3 Answers"}
 ```{r}
 # Type your code and comments inside the code chunk
-
+hate_mod <- lm(hate_crimes ~ trump_support, data = hate_crimes)
+get_regression_table(hate_mod) -> P3
+kable(P3)
 ```
 :::
 
@@ -251,10 +253,15 @@ Do these results surprise you? (There is no right answer to this question.)
 ::: {.callout-important icon="false" collapse="false" title="Problem 11 Answers"}
 ```{r}
 # Type your code and comments inside the code chunk
-
+hate_crimes |>
+  arrange(desc(hate_crimes)) |>
+  select(state, hate_crimes, trump_support) |>
+  head(n = 6) -> question11
+question11 |>
+  kable()
 ```
 
--   Delete this and put your text answer here.
+-   The five states with the highest rate of hate crimes are Oregon, Washington, Massachusetts, Minnesota, and Maine. They also all had **LOW** Trump support. This did not surpise me sice these states are very democratic.
 :::
 
 # Hate Crimes and Unemployment

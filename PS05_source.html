@@ -135,7 +135,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified on September 15, 2026 12:56:19 Eastern Daylight Time</p>
+      <p class="date">Last modified on September 16, 2026 13:36:59 Eastern Daylight Time</p>
     </div>
   </div>
   
@@ -286,7 +286,7 @@ $ income           &lt;dbl&gt; 46686, 51710, 54310, 54916, 57522, 58633, 58875, 
 <div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ul>
-<li>Delete this and put your text answer here.</li>
+<li>Yes I expected that people with <strong>low trump support</strong> would commit more <strong>hate crimes</strong>.</li>
 </ul>
 </div>
 </div>
@@ -317,7 +317,63 @@ $ income           &lt;dbl&gt; 46686, 51710, 54310, 54916, 57522, 58633, 58875, 
 <div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>hate_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(hate_crimes <span class="sc">~</span> trump_support, <span class="at">data =</span> hate_crimes)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(hate_mod) <span class="ot">-&gt;</span> P3</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(P3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std_error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p_value</th>
+<th style="text-align: right;">lower_ci</th>
+<th style="text-align: right;">upper_ci</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">intercept</td>
+<td style="text-align: right;">0.191</td>
+<td style="text-align: right;">0.060</td>
+<td style="text-align: right;">3.182</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">0.070</td>
+<td style="text-align: right;">0.312</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">trump_support: low</td>
+<td style="text-align: right;">0.269</td>
+<td style="text-align: right;">0.080</td>
+<td style="text-align: right;">3.363</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">0.108</td>
+<td style="text-align: right;">0.430</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">trump_support: medium</td>
+<td style="text-align: right;">0.031</td>
+<td style="text-align: right;">0.083</td>
+<td style="text-align: right;">0.376</td>
+<td style="text-align: right;">0.709</td>
+<td style="text-align: right;">-0.137</td>
+<td style="text-align: right;">0.200</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -629,10 +685,59 @@ D_2 =
 <div id="callout-24" class="callout-24-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type your code and comments inside the code chunk</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>hate_crimes <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(hate_crimes)) <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(state, hate_crimes, trump_support) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">6</span>) <span class="ot">-&gt;</span> question11</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>question11 <span class="sc">|&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">state</th>
+<th style="text-align: right;">hate_crimes</th>
+<th style="text-align: left;">trump_support</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">District of Columbia</td>
+<td style="text-align: right;">1.522</td>
+<td style="text-align: left;">low</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oregon</td>
+<td style="text-align: right;">0.833</td>
+<td style="text-align: left;">low</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Washington</td>
+<td style="text-align: right;">0.677</td>
+<td style="text-align: left;">low</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Massachusetts</td>
+<td style="text-align: right;">0.631</td>
+<td style="text-align: left;">low</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Minnesota</td>
+<td style="text-align: right;">0.627</td>
+<td style="text-align: left;">low</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maine</td>
+<td style="text-align: right;">0.616</td>
+<td style="text-align: left;">low</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <ul>
-<li>Delete this and put your text answer here.</li>
+<li>The five states with the highest rate of hate crimes are Oregon, Washington, Massachusetts, Minnesota, and Maine. They also all had <strong>LOW</strong> Trump support. This did not surpise me sice these states are very democratic.</li>
 </ul>
 </div>
 </div>
